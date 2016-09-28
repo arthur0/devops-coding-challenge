@@ -26,7 +26,7 @@ After you've submitted your answers we´ll review them and discuss in detail our
 
 ### Context
 
-We're building ***MultiVAC***, a multi-purpose self-adjusting and self-correcting computer that well help us understand how to reverse the universe's entropy.
+We're building ***MultiVAC***, a multi-purpose self-adjusting and self-correcting computer that will help us understand how to reverse the universe's entropy.
 
 Of course, we're at the very early stages, and as such, we're starting with the bare minimum. Our MultiVAC is currently in the form of a single application that uses a ***web api*** through ***http*** with a limited number of ***endpoints***.
 
@@ -62,16 +62,13 @@ GET /multivac
 
 2) Acquire more data    
 
-```PUT /multivac/data```  
+```POST /multivac/data```  
 
 body params:  
 ```  
-URL: String  
+data: String  
 ``` 
 
-3) Process data  
-
-```POST /multivac```
 
 ### Testing MultiVAC
 
@@ -79,7 +76,8 @@ To run MultiVAC do:
 
 ```
 
-xyz
+python manage.py runserver
+python manage.py worker
 
 
 ```
@@ -90,8 +88,7 @@ To test it do as follows:
 
 * Invoke the ``` GET /multivac``` endpoint and check if MultiVAC is able to answer
 * If MultiVAC is not giving you a propper answer, you need to feed it with more data and make it process it.
-* To feed data into MultiVAC invoke ```PUT /multivac/dat``` and pass a URL of a website containing relevant content to our question such as ```http://www.aei.mpg.de/32695/String_Theory```.
-* Then, make MultiVAC process the info with ```POST /multivac```
+* To feed data into MultiVAC invoke ```POST /multivac/data``` and pass data to answer the question.
 * While MultiVAC processes data asynchronously, try to keep question it a couple of times to see if it can answer back. If not, repeat the whole process and feed more data into it. 
 
 
