@@ -108,7 +108,7 @@ Describe the deployment architecture and how you would implement it. Please ment
 For this part you need to request ssh for a machine. Please do that before we start.
 
 ### 2.1 Deployment
-Write the necessary scripts for deployment for this APP. Note this can be a single machine deployment, no concerns with scalability are necessary. You should do so using Ansible and Fabric. If you have no experience with these tools but have experience with equivalent ones, please use the other tools.
+Write the necessary scripts for deployment for this APP. Note this can be a single machine deployment, no concerns with scalability are necessary. You should do so using Ansible and Fabric or Docker. If you have no experience with these tools but have experience with equivalent ones, please use the other tools.
 
 ### 2.2 Continous Integration
 Set up a continuous integration system that runs the project tests after each commit and displaying on github the status of the build (Preferably use Jenkins).
