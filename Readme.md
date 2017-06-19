@@ -16,7 +16,6 @@ Both parts will include detailed instructions on what to do and how to do it.
 * If you can't finish the challenge due to unforeseen personal reasons let us know ASAP so we can adapt your deadline and/or challenge.
 * Any challenge related questions, technical or otherwise, feel free to contact us: ```devops (at) unbabel.com```
 
-
 #### What will we look at
 Although we keep processes transparent and straightforward, if we were to provide you with specific answers to this question you'd be come instantly biased by your interpretation of what we may or may not want.
 
@@ -62,9 +61,11 @@ GET /multivac
 
 2) Acquire more data
 
-```POST /multivac/data```
+```
+POST /multivac/data
+```
 
-body params:
+Body parameters (form):
 ```
 data: String
 ```
