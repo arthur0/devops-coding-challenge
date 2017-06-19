@@ -11,7 +11,6 @@ Both parts will include detailed instructions on what to do and how to do it.
 #### Guidelines
 * ***Fork this _git repo_*** and add all your answers and relevant files.
 * Make sure you ***document everything*** and assume nothing.
-* You have ***```4 days```*** to complete this challenge.
 * ***Send us a link to your fork*** as soon as you start working on it, and then let us know when you're done.
 * If you can't finish the challenge due to unforeseen personal reasons let us know ASAP so we can adapt your deadline and/or challenge.
 * Any challenge related questions, technical or otherwise, feel free to contact us: ```devops (at) unbabel.com```
