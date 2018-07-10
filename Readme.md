@@ -104,13 +104,13 @@ Describe the deployment architecture and how you would implement it. Please ment
 
 ## Execution
 
-For this part you need to request ssh for a machine. Please do that before we start.
+For this part you may need to have access to a Kubernetes cluster or a cloud instance. Create one using the [GCP free tier](https://cloud.google.com/free/) to spin up your testing environment, but if you need extra resources please contact us so that we can set them up for you.
 
 ### 2.1 Deployment
-Write the necessary scripts for the deployment of this application. Note this can be a single machine deployment, so no concerns with scalability are necessary. You should be using Ansible and/or Docker. If you have no experience with these tools but have experience with equivalent ones, please use the ones you are already familiar with.
+Write the necessary scripts for the deployment of this application. Note this can be a single machine deployment, so no concerns with scalability are necessary. You should be using Docker and Kubernetes. If you have no experience with these tools but have experience with equivalent ones, please use the ones you are already familiar with.
 
 ### 2.2 Continous Integration
-Set up a continuous integration system that runs the project tests after each commit and displaying on github the status of the build.
+Set up a continuous integration system that runs the project tests after each commit. We recommend using the GitLab CI system for this purpose, but you are welcome to implement it using other tools.
 
 ### 2.3 Debuging
 Endpoint /zzz/ has a bug. Tell us exactly what the problem is, and for extra credit try to fix it.
