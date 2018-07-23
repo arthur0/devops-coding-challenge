@@ -1,5 +1,5 @@
 import os
-from redis import Redis
+import redis
 from pymongo import MongoClient
 import logging
 
@@ -11,12 +11,12 @@ class BaseConfiguration(object):
     APP_ENV = os.environ.get("APP_ENV")
     WTF_CSRF_ENABLED = False
     DEBUG = os.environ.get("DEBUG_MODE") == "True"
-    MONGODB_SETTINGS = {
-        'db': os.environ.get("MONGO_DB_NAME"),
-        'host': os.environ.get("MONGO_URL")
-    }
+    MONGODB_URL = os.environ.get("MONGO_URL")
 
     SECRET_KEY = os.environ.get("SECRET_KEY")
+
+    REDIS_URL = os.environ.get("REDIS_URL", "localhost")
+    RQ_DEFAULT_URL = REDIS_URL
 
     FORCE_ENGINE = os.environ.get("FORCE_ENGINE", None)
 
@@ -41,26 +41,17 @@ def get_env_var(varname):
 def get_redis_connection():
     # Redis connection
     r = get_env_var("REDIS_URL")
-    redis_host, redis_port = r.split('/')[2].split(':')
-    redis_connection = Redis(host=redis_host, port=redis_port)
+    redis_connection = redis.from_url(r)
 
     return redis_connection
 
 
 def get_multivac_db():
     # Connect to the mongodb db
-    username = os.environ.get("MONGO_USERNAME")
-    password = os.environ.get("MONGO_PASSWORD")
-    server = os.environ.get("MONGO_SERVER")
-
-    # To account for local, protection-less dbs
-    if password == "":
-        mongourl = "mongodb://%s" % server
-    else:
-        mongourl = "mongodb://%s:%s@%s/%s" % (username, password, server, "multivac")
+    mongourl = os.environ.get("MONGO_URL")
 
     log.debug("Connecting to the %s mongo database." % mongourl)
-    client = MongoClient(mongourl, 27017)
+    client = MongoClient(mongourl)
     db = client.get_database("multivac")
 
     return db
