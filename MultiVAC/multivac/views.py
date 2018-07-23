@@ -2,7 +2,7 @@ import json
 import logging
 from rq import Queue
 from config import get_multivac_db, get_redis_connection
-from process_data import process_data
+from multivac.process_data import process_data
 from flask import Blueprint, request, Response, redirect, url_for
 
 
